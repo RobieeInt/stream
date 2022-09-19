@@ -2,7 +2,7 @@
 
 @section('title', 'Movies');
 
-@section('content');
+@section('content')
   <div class="row">
     <div class="col-md-12">
       <div class="card card-primary">
@@ -17,13 +17,20 @@
             </div>
           </div>
 
+          @if(session()->has('success'))
+            <div class="alert alert-success text-center">
+              {{ session()->get('success') }}
+            </div>
+            @endif
+
           <div class="row">
             <div class="col-md-12">
-              <table id="example2" class="table table-bordered table-hover">
+              <table id="movie" class="table table-bordered table-hover">
                 <thead>
                   <tr>
                     <th>Id</th>
                     <th>Title</th>
+                    <th>Thumbnail</th>
                     <th>Thumbnail</th>
                     <th>Categories</th>
                     <th>Casts</th>
@@ -31,14 +38,21 @@
                   </tr>
                 </thead>
                 <tbody>
+                @foreach ($movies as $movie )
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>{{$movie->id}}</td>
+                      <td>{{$movie->title}}</td>
+                      <td>
+                        <img src="{{ asset('storage/thumbnail/'.$movie->small_thumbnail) }}" alt="" width="50px">
+                      </td>
+                      <td>
+                        <img src="{{ asset('storage/thumbnail/'.$movie->large_thumbnail) }}" alt="" width="50px">
+                      </td>
+                      <td>{{$movie->categories}}</td>
+                      <td>{{$movie->casts}}</td>
                       <td></td>
                     </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
@@ -47,4 +61,10 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('js')
+    <script>
+        $('#movie').DataTable();
+    </script>
 @endsection

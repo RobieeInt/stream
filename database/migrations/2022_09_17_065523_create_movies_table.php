@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('trailer');
+            $table->string('movie');
             $table->string('slug');
             $table->string('casts');
             $table->string('categories');
