@@ -37,7 +37,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ asset('adminlte/dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo"
+            <img class="animation__shake" src="{{ asset('adminlte/dist/img/laravel.png') }}" alt="laravel"
                 height="60" width="60">
         </div>
 

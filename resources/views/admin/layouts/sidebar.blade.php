@@ -2,7 +2,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="{{ asset("adminlte/dist/img/AdminLTELogo.png") }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="{{ asset("adminlte/dist/img/laravel.png") }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">STREAM</span>
     </a>
 
@@ -31,7 +31,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="{{ route('admin.transaction.index') }}" class="nav-link">
               <i class="nav-icon fas fa-shopping-cart"></i>
               <p>
                 Transactions
@@ -47,6 +47,16 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.package.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-cubes"></i>
+              <p>
+                Package
+              </p>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
