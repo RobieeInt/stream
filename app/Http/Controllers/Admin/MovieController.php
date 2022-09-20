@@ -70,7 +70,7 @@ class MovieController extends Controller
     public function edit($id)
     {
         $movie = Movie::find($id);
-        return view('admin.movie-edit', ['movie' => $movie]);
+        return view('admin.movie.movie-edit', ['movie' => $movie]);
     }
 
     public function update(Request $request, $id)
@@ -124,9 +124,19 @@ class MovieController extends Controller
         $slug = str_replace(' ', '-', $data['title']);
         $data['slug'] = strtolower($slug);
 
+        $movieOldName = Movie::find($id)->title;
+        $movieNewName = $data['title'];
+
         $movie->update($data);
 
-        return redirect()->route('admin.movie.index')->with('success', 'Movie berhasil di Update');
+        // return redirect()->route('admin.movie.index')->with('success', 'Data Movie ' . $movieOldName . ' berhasil diubah !!! ' );
+
+        //if data movie name is changed
+        if($movieOldName != $movieNewName) {
+            return redirect()->route('admin.movie.index')->with('success', 'Data Movie ' . $movieOldName . ' berhasil diubah menjadi ' . $movieNewName . ' !!! ' );
+        } else {
+            return redirect()->route('admin.movie.index')->with('success', 'Data Movie ' . $movieOldName . ' berhasil diubah !!! ' );
+        }
     }
 
     public function destroy($id)
@@ -135,11 +145,12 @@ class MovieController extends Controller
         // 5 cara delete
 
         // 1. delete
-        // $movie = Movie::find($id);
-        // $movie->delete();
+        $movie = Movie::find($id);
+        $movieName = $movie->title;
+        $movie->delete();
 
         // 2. destroy
-        Movie::destroy($id);
+        // Movie::destroy($id);
 
         // 3. forceDelete
         // Movie::where('id', $id)->forceDelete();
@@ -151,6 +162,8 @@ class MovieController extends Controller
         // Movie::find($id)->delete();
 
 
-        return redirect()->route('admin.movie.index')->with('success', 'Movie berhasil dihapus');
+        return redirect()->route('admin.movie.index')->with('success', 'Movie ' . $movieName . ' berhasil dihapus yaa !!!');
+
+
     }
 }
