@@ -43,6 +43,7 @@
                                     <th>Duration</th>
                                     <th>Rating</th>
                                     <th>Featured</th>
+                                    <th>About</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -64,6 +65,11 @@
                                     <td>{{$movie->duration}}</td>
                                     <td>{{$movie->rating}}</td>
                                     <td>{{$movie->is_featured === 1 ? "yes" : "No" }}</td>
+                                    <td>
+                                        <div class="about">
+                                            {!! $movie->long_description !!}
+                                        </div>
+                                    </td>
                                     <td>
                                         <a href="{{ route('admin.movie.edit', $movie->id) }}"
                                             class="btn btn-secondary"><i class="fas fa-edit"></i>Edit</a>
@@ -141,5 +147,11 @@
     });
 </script>
 @endif
+
+{{-- CKEDIT about --}}
+<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('about');
+</script>
 
 @endsection

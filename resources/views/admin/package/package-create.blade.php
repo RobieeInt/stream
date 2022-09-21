@@ -89,11 +89,9 @@
 
 @section('js')
 <script>
-    $(function () {
     //Date picker
     $('#release-date').datetimepicker({
       format: 'YYYY-MM-DD'
     });
-  })
 </script>
 @endsection

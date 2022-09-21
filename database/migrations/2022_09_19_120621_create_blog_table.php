@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('author');
             $table->string('slug');
             $table->string('image');
-            $table->string('status');
+            //status draft or publish
+            $table->enum('status', ['draft', 'publish']);
             $table->string('meta_title');
             $table->string('meta_description');
             $table->string('meta_keywords');

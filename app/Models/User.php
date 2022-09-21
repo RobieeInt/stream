@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+//model transaction
+use App\Models\Transaction;
 
 class User extends Authenticatable
 {
@@ -44,4 +46,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //relation with transaction relation one to many
+    public function transaction()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }
