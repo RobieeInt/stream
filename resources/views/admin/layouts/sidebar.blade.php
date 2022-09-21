@@ -49,10 +49,28 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{ route('admin.blog.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-blog"></i>
+              <p>
+                Blog
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="{{ route('admin.package.index') }}" class="nav-link">
               <i class="nav-icon fas fa-cubes"></i>
               <p>
                 Package
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.user.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                User
               </p>
             </a>
           </li>

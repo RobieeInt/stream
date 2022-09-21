@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\PackageController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,21 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::get('/edit/{id}', [PackageController::class, 'edit'])->name('admin.package.edit');
         Route::put('/update/{id}', [PackageController::class, 'update'])->name('admin.package.update');
         Route::delete('/destroy/{id}', [PackageController::class, 'destroy'])->name('admin.package.destroy');
+    });
+
+    //route group user
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('/', [UserController::class, 'index'])->name('admin.user.index');
+    });
+
+    //route group blog
+    Route::group(['prefix' => 'blog'], function () {
+        Route::get('/', [BlogController::class, 'index'])->name('admin.blog.index');
+        Route::get('/create', [BlogController::class, 'create'])->name('admin.blog.create');
+        Route::post('/store', [BlogController::class, 'store'])->name('admin.blog.store');
+        Route::get('/edit/{id}', [BlogController::class, 'edit'])->name('admin.blog.edit');
+        Route::put('/update/{id}', [BlogController::class, 'update'])->name('admin.blog.update');
+        Route::delete('/destroy/{id}', [BlogController::class, 'destroy'])->name('admin.blog.destroy');
     });
 
 });
