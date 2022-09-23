@@ -24,13 +24,13 @@
                         <table id="blogs" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>title</th>
-                                    <th>content</th>
-                                    <th>author</th>
-                                    <th>status</th>
-                                    <th>image</th>
-                                    <th>action</th>
+                                    <th class="text-center">Id</th>
+                                    <th class="text-center">title</th>
+                                    <th class="text-center">content</th>
+                                    <th class="text-center">author</th>
+                                    <th class="text-center">status</th>
+                                    <th class="text-center">image</th>
+                                    <th class="text-center">action</th>
 
                                 </tr>
                             </thead>
@@ -38,22 +38,22 @@
                                 @foreach ($blogs as $blog )
 
                                 <tr>
-                                    <td>{{$blog->id}}</td>
-                                    <td>{{$blog->title}}</td>
-                                    <td>
-                                        <div class="content">
+                                    <td class="text-center">{{$blog->id}}</td>
+                                    <td class="text-center">{{$blog->title}}</td>
+                                    <td class="text-center">
+                                        <div class="text-center content">
                                             {!! $blog->content !!}
                                         </div>
                                     </td>
-                                    <td>{{$blog->author}}</td>
-                                    <td class="{{$blog->status == 'publish' ?  " text-teal" : "text-orange" }}">
+                                    <td class="text-center">{{$blog->author}}</td>
+                                    <td class="text-center {{$blog->status == 'publish' ?  " text-teal" : "text-orange" }}">
                                         {{-- //uppercase --}}
                                         {{ strtoupper($blog->status) }}
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         <img src="{{ asset('storage/blog/'.$blog->image)}}" alt="" width="100px">
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         <a href="{{ route('admin.blog.edit', $blog->id) }}"
                                             class="btn btn-secondary mb-2"><i class="fas fa-edit"></i>Edit</a> <br>
                                         <form action="{{ route('admin.blog.destroy', $blog->id) }}" method="POST"

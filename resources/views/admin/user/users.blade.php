@@ -15,33 +15,33 @@
                         <table id="users" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Transaction</th>
-                                    <th>Transaction Amount</th>
-                                    <th>Phone</th>
-                                    <th>Role</th>
+                                    <th class="text-center">Id</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Email</th>
+                                    <th class="text-center">Transaction</th>
+                                    <th class="text-center">Transaction Amount</th>
+                                    <th class="text-center">Phone</th>
+                                    <th class="text-center">Role</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($users as $user )
 
                                 <tr>
-                                    <td>{{$user->id}}</td>
-                                    <td>{{$user->name}}</td>
-                                    <td>{{$user->email}}</td>
-                                    <td>
+                                    <td class="text-center">{{$user->id}}</td>
+                                    <td class="text-center">{{$user->name}}</td>
+                                    <td class="text-center">{{$user->email}}</td>
+                                    <td class="text-center">
                                         {{-- get transaction relation with status success count --}}
                                         {{$user->transaction->where('status', 'success')->count()}}
                                         {{-- {{ $user->transaction->count() }} --}}
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         {{-- get transaction relation sum with status successfully--}}
                                         {{ number_format($user->transaction->where('status', 'success')->sum('amount')) }}
                                         {{-- {{ number_format($user->transaction->sum('amount')) }} --}}
-                                    <td>{{$user->phone}}</td>
-                                    <td>{{$user->role}}</td>
+                                    <td class="text-center">{{$user->phone}}</td>
+                                    <td class="text-center">{{$user->role}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

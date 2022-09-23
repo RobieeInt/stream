@@ -34,43 +34,43 @@
                         <table id="movie" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Title</th>
-                                    <th>Thumbnail S</th>
-                                    <th>Thumbnail L</th>
-                                    <th>Categories</th>
-                                    <th>Casts</th>
-                                    <th>Duration</th>
-                                    <th>Rating</th>
-                                    <th>Featured</th>
-                                    <th>About</th>
-                                    <th>Action</th>
+                                    <th class="text-center">Id</th>
+                                    <th class="text-center">Title</th>
+                                    <th class="text-center">Thumbnail S</th>
+                                    <th class="text-center">Thumbnail L</th>
+                                    <th class="text-center">Categories</th>
+                                    <th class="text-center">Casts</th>
+                                    <th class="text-center">Duration</th>
+                                    <th class="text-center">Rating</th>
+                                    <th class="text-center">Featured</th>
+                                    <th class="text-center">About</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($movies as $movie )
                                 <tr>
-                                    <td>{{$movie->id}}</td>
-                                    <td>{{$movie->title}}</td>
-                                    <td>
+                                    <td class="text-center">{{$movie->id}}</td>
+                                    <td class="text-center">{{$movie->title}}</td>
+                                    <td class="text-center">
                                         <img src="{{ asset('storage/thumbnail/'.$movie->small_thumbnail) }}" alt=""
                                             width="50px">
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         <img src="{{ asset('storage/thumbnail/'.$movie->large_thumbnail) }}" alt=""
                                             width="50px">
                                     </td>
-                                    <td>{{$movie->categories}}</td>
-                                    <td>{{$movie->casts}}</td>
-                                    <td>{{$movie->duration}}</td>
-                                    <td>{{$movie->rating}}</td>
-                                    <td>{{$movie->is_featured === 1 ? "yes" : "No" }}</td>
-                                    <td>
+                                    <td class="text-center">{{$movie->categories}}</td>
+                                    <td class="text-center">{{$movie->casts}}</td>
+                                    <td class="text-center">{{$movie->duration}}</td>
+                                    <td class="text-center">{{$movie->rating}}</td>
+                                    <td class="text-center">{{$movie->is_featured === 1 ? "yes" : "No" }}</td>
+                                    <td class="text-center">
                                         <div class="about">
                                             {!! $movie->long_description !!}
                                         </div>
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         <a href="{{ route('admin.movie.edit', $movie->id) }}"
                                             class="btn btn-secondary"><i class="fas fa-edit"></i>Edit</a>
                                         <form action="{{ route('admin.movie.destroy', $movie->id) }}" method="POST"

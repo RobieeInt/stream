@@ -29,30 +29,30 @@
                         <table id="packages" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Package</th>
-                                    <th>Price</th>
-                                    <th>Max Days</th>
-                                    <th>Max Users</th>
-                                    <th>is Download?</th>
-                                    <th>is 4K?</th>
-                                    <th>Action</th>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">Package</th>
+                                    <th class="text-center">Price</th>
+                                    <th class="text-center">Max Days</th>
+                                    <th class="text-center">Max Users</th>
+                                    <th class="text-center">is Download?</th>
+                                    <th class="text-center">is 4K?</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($packages as $package )
                                 <tr>
-                                    <td>
+                                    <td class="text-center">
                                         {{-- loop number --}}
                                         {{ $loop->iteration }}
                                     </td>
-                                    <td>{{$package->name}}</td>
-                                    <td>{{$package->price}}</td>
-                                    <td>{{$package->max_days}}</td>
-                                    <td>{{$package->max_users}}</td>
-                                    <td>{{$package->is_downloaded === 1 ? "yes" : "No" }}</td>
-                                    <td>{{$package->is_4k === 1 ? "yes" : "No" }}</td>
-                                    <td>
+                                    <td class="text-center">{{$package->name}}</td>
+                                    <td class="text-center">{{$package->price}}</td>
+                                    <td class="text-center">{{$package->max_days}}</td>
+                                    <td class="text-center">{{$package->max_users}}</td>
+                                    <td class="text-center">{{$package->is_downloaded === 1 ? "yes" : "No" }}</td>
+                                    <td class="text-center">{{$package->is_4k === 1 ? "yes" : "No" }}</td>
+                                    <td class="text-center">
                                         <a href="{{ route('admin.package.edit', $package->id) }}"
                                             class="btn btn-secondary"><i class="fas fa-edit"></i>Edit</a>
                                         <form action="{{ route('admin.package.destroy', $package->id) }}" method="POST"

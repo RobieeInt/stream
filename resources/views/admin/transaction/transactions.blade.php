@@ -15,26 +15,26 @@
             <table id="transactions" class="table table-bordered table-hover">
               <thead>
                 <tr>
-                  <th>Id</th>
-                  <th>Package</th>
-                  <th>User</th>
-                  <th>Amount</th>
-                  <th>Transaction Code</th>
-                  <th>Status</th>
+                  <th class="text-center">Id</th>
+                  <th class="text-center">Package</th>
+                  <th class="text-center">User</th>
+                  <th class="text-center">Amount</th>
+                  <th class="text-center">Transaction Code</th>
+                  <th class="text-center">Status</th>
                 </tr>
               </thead>
               <tbody>
               @foreach ($transactions as $transaction )
 
                   <tr>
-                    <td>{{$transaction->id}}</td>
-                    <td>{{$transaction->package->name}}</td>
-                    <td>{{$transaction->user->name}}</td>
-                    <td>
+                    <td class="text-center">{{$transaction->id}}</td>
+                    <td class="text-center">{{$transaction->package->name}}</td>
+                    <td class="text-center">{{$transaction->user->name}}</td>
+                    <td class="text-center">
                     {{ number_format($transaction->amount) }}
                     </td>
-                    <td  class="text-maroon">{{$transaction->transaction_code}}</td>
-                    <td class="{{$transaction->status == 'success' ?  "text-teal" : "text-orange"}}" >
+                    <td  class="text-maroon text-center">{{$transaction->transaction_code}}</td>
+                    <td class="text-center {{$transaction->status == 'success' ?  "text-teal" : "text-orange"}}" >
                     {{-- //uppercase --}}
                     {{ strtoupper($transaction->status) }}
                     </td>
