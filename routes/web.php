@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +23,13 @@ use App\Http\Controllers\Admin\BlogController;
 //     return view('welcome');
 // });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+Route::get('admin/login', [LoginController::class, 'index'])->name('admin.login');
+Route::post('admin/login', [LoginController::class, 'authenticate'])->name('admin.login.auth');
+
+Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth'],'namespace' => 'Admin'], function () {
     Route::view('/', 'admin.dashboard')->name('admin.dashboard');
+
+    Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
 
     //route movie
     Route::group(['prefix' => 'movie'], function () {

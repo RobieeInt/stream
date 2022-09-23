@@ -55,7 +55,7 @@
                                     </td>
                                     <td>
                                         <a href="{{ route('admin.blog.edit', $blog->id) }}"
-                                            class="btn btn-secondary mb-2"><i class="fas fa-edit"></i>Edit</a>
+                                            class="btn btn-secondary mb-2"><i class="fas fa-edit"></i>Edit</a> <br>
                                         <form action="{{ route('admin.blog.destroy', $blog->id) }}" method="POST"
                                             class="d-inline">
                                             @csrf
@@ -114,7 +114,7 @@
 {{-- CKEDIT Content --}}
 <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace('content');
+    CKEDITOR.replace('content', 'tabSpaces', 4);
 </script>
 
 {{-- show sweet alert if delete success --}}

@@ -32,12 +32,14 @@
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>
-                                        {{-- get transaction relation count --}}
-                                        {{ $user->transaction->count() }}
+                                        {{-- get transaction relation with status success count --}}
+                                        {{$user->transaction->where('status', 'success')->count()}}
+                                        {{-- {{ $user->transaction->count() }} --}}
                                     </td>
                                     <td>
-                                        {{-- get transaction relation sum --}}
-                                        {{ number_format($user->transaction->sum('amount')) }}
+                                        {{-- get transaction relation sum with status successfully--}}
+                                        {{ number_format($user->transaction->where('status', 'success')->sum('amount')) }}
+                                        {{-- {{ number_format($user->transaction->sum('amount')) }} --}}
                                     <td>{{$user->phone}}</td>
                                     <td>{{$user->role}}</td>
                                 </tr>

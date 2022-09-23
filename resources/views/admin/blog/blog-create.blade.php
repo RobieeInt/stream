@@ -91,6 +91,6 @@
 {{-- //CKEDITOR --}}
 <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace( 'content' );
+    CKEDITOR.replace( 'content', {tabSpaces: 8} );
 </script>
 @endsection

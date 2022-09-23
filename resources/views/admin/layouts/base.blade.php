@@ -37,8 +37,8 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ asset('adminlte/dist/img/laravel.png') }}" alt="laravel"
-                height="60" width="60">
+            <img class="animation__shake" src="{{ asset('adminlte/dist/img/loading.gif') }}" alt="laravel"
+                height="100" width="100">
         </div>
 
         {{-- navbar here --}}
