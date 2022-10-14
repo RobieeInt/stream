@@ -25,6 +25,11 @@ return new class extends Migration
             $table->string('meta_title');
             $table->string('meta_description');
             $table->string('meta_keywords');
+            //popular blog
+            $table->boolean('popular')->default(false);
+            //blog tags as json
+            $table->json('tags')->nullable();
+
 
             $table->softDeletes();
             $table->timestamps();

@@ -23,6 +23,8 @@ use App\Http\Controllers\Admin\LoginController;
 //     return view('welcome');
 // });
 
+Route::view('/', 'landing.index');
+
 Route::get('admin/login', [LoginController::class, 'index'])->name('admin.login');
 Route::post('admin/login', [LoginController::class, 'authenticate'])->name('admin.login.auth');
 
