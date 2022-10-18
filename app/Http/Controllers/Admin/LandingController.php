@@ -19,14 +19,17 @@ class LandingController extends Controller
 
     public function blogDetails( $slug)
     {
-        //find blog id by slug
+        //get recent blog to show in sidebar except current blog
+        $recentBlogs = Blog::where('slug', '!=', $slug)->orderBy('created_at', 'desc')->limit(4)->get();
 
-
+        //get blog random to show in sidebar except current blog
+        $randomBlogs = Blog::where('slug', '!=', $slug)->inRandomOrder()->limit(5)->get();
 
         $landings = ProfileCorp::all();
-        $blogs = Blog::where('slug', $slug)->first();
+
+        $blog = Blog::where('slug', $slug)->first();
         // $blogs = Blog::find($slug);
         // dd($blogs);
-        return view('landing.blogDetails', ['blogs' => $blogs], ['landings' => $landings]);
+        return view('landing.blogDetails', compact('blog', 'recentBlogs', 'landings', 'randomBlogs'));
     }
 }
