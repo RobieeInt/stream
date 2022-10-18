@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Blog;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
@@ -38,12 +40,25 @@ class BlogController extends Controller
             'meta_keywords' => 'required|string',
         ]);
 
+
         $image = $request->file('image');
         $image_name = Str::random(5) . $image->getClientOriginalname();
-        $image->storeAs('public/blog', $image_name);
+        //resize image composer require intervention/image
+        $image_resize = Image::make($image->getRealPath());
+        //resize dimension 1024x768
+        $image_resize->resize(1024, 768);
+        // $manager = new ImageManager(['driver' => 'gd']);
+        // $image_resize = $manager->make($image->getRealPath())->resize(1080, 1080);
+
+        //save image
+        $image_resize->save(public_path('storage/blog/' . $image_name));
+
+
+
+        // $image_resize->storeAs('public/blog', $image_name);
         $data['image'] = $image_name;
 
-        $slug = str_replace(' ', '-', $data['title']);
+        $slug = str_replace(' ', '_', $data['title']);
         $data['slug'] = strtolower($slug);
 
         Blog::create($data);
@@ -80,7 +95,11 @@ class BlogController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $image_name = Str::random(5) . $image->getClientOriginalname();
-            $image->storeAs('public/blog', $image_name);
+            //resize image composer require intervention/image
+            $image_resize = Image::make($image->getRealPath());
+            //resize dimension 1024x768
+            $image_resize->resize(1024, 768);
+            $image_resize->save(public_path('storage/blog/' . $image_name));
             $data['image'] = $image_name;
 
             Storage::delete('public/blog/' . $blog->image);
@@ -88,7 +107,7 @@ class BlogController extends Controller
             $data['image'] = $blog->image;
         }
 
-        $slug = str_replace(' ', '-', $data['title']);
+        $slug = str_replace(' ', '_', $data['title']);
         $data['slug'] = strtolower($slug);
 
         $blogOldName = $blog->title;

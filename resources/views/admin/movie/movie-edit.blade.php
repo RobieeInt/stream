@@ -86,6 +86,7 @@
                             </div>
                             {{-- <input type="file" class="form-control" name="small_thumbnail"> --}}
                         </div>
+                    </div>
                         <div class="form-group">
                             <label for="large-thumbnail">Large Thumbnail</label>
                             {{-- //show image --}}
@@ -99,6 +100,7 @@
                                 </div>
                                 {{-- <input type="file" class="form-control" name="large_thumbnail"> --}}
                             </div>
+                        </div>
                             <div class="form-group">
                                 <label for="description">Short About</label>
                                 <input type="text" class="form-control" id="description" name="description"

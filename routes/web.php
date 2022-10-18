@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\ProfileCorpController;
+use App\Http\Controllers\Admin\LandingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +25,13 @@ use App\Http\Controllers\Admin\LoginController;
 //     return view('welcome');
 // });
 
-Route::view('/', 'landing.index');
+// Route::view('/', 'landing.index')->name('landing.index');
+// route index landing
+Route::get('/', [LandingController::class, 'index'])->name('landing.index');
+
+//route to blog details route slug
+Route::get('/blog/{slug}', [LandingController::class, 'blogDetails'])->name('landing.blogDetails');
+// Route::get('/blog/{id}', [LandingController::class, 'blogDetails'])->name('landing.blogDetails');
 
 Route::get('admin/login', [LoginController::class, 'index'])->name('admin.login');
 Route::post('admin/login', [LoginController::class, 'authenticate'])->name('admin.login.auth');
@@ -73,6 +81,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth'],'namespace' =>
         Route::get('/edit/{id}', [BlogController::class, 'edit'])->name('admin.blog.edit');
         Route::put('/update/{id}', [BlogController::class, 'update'])->name('admin.blog.update');
         Route::delete('/destroy/{id}', [BlogController::class, 'destroy'])->name('admin.blog.destroy');
+    });
+
+    //route landing page
+    Route::group(['prefix' => 'landing'], function () {
+        Route::get('/', [ProfileCorpController::class, 'index'])->name('admin.landing.index');
+        Route::get('/create', [ProfileCorpController::class, 'create'])->name('admin.landing.create');
+        Route::post('/store', [ProfileCorpController::class, 'store'])->name('admin.landing.store');
+        Route::get('/edit/{id}', [ProfileCorpController::class, 'edit'])->name('admin.landing.edit');
+        Route::put('/update/{id}', [ProfileCorpController::class, 'update'])->name('admin.landing.update');
+        Route::delete('/destroy/{id}', [ProfileCorpController::class, 'destroy'])->name('admin.landing.destroy');
     });
 
 });
