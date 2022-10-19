@@ -9,7 +9,7 @@
 
       <div class="row g-0" data-aos="fade-up" data-aos-delay="200">
 
-        <div class="col-xl-5 img-bg" style="background-image: url('maa/assets/img/why-us-bg.jpg')"></div>
+        <div class="col-xl-5 img-bg" style="background-image: url('maa/assets/img/om.jpg')"></div>
         <div class="col-xl-7 slides  position-relative">
 
           <div class="slides-1 swiper">

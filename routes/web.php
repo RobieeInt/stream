@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\ProfileCorpController;
 use App\Http\Controllers\Admin\LandingController;
+use App\Http\Controllers\Admin\ProfilTeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +92,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth'],'namespace' =>
         Route::get('/edit/{id}', [ProfileCorpController::class, 'edit'])->name('admin.landing.edit');
         Route::put('/update/{id}', [ProfileCorpController::class, 'update'])->name('admin.landing.update');
         Route::delete('/destroy/{id}', [ProfileCorpController::class, 'destroy'])->name('admin.landing.destroy');
+    });
+
+    //route profile team
+    Route::group(['prefix' => 'profile'], function () {
+        Route::get('/', [ProfilTeamController::class, 'index'])->name('admin.profile.index');
+        Route::get('/create', [ProfilTeamController::class, 'create'])->name('admin.profile.create');
+        Route::post('/store', [ProfilTeamController::class, 'store'])->name('admin.profile.store');
+        Route::get('/edit/{id}', [ProfilTeamController::class, 'edit'])->name('admin.profile.edit');
+        Route::put('/update/{id}', [ProfilTeamController::class, 'update'])->name('admin.profile.update');
+        Route::delete('/destroy/{id}', [ProfilTeamController::class, 'destroy'])->name('admin.profile.destroy');
     });
 
 });

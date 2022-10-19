@@ -1,6 +1,6 @@
 @extends('admin.layouts.base');
 
-@section('title', 'Packages');
+@section('title', 'Blog Content')');
 
 @section('content')
 <div class="row">

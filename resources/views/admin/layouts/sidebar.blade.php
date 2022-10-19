@@ -4,7 +4,7 @@
     <a href="{{ route('admin.dashboard') }}" class="brand-link">
         <img src="{{ asset('adminlte/dist/img/loading.gif') }}" alt="AdminLTE Logo" class="brand-image elevation-3"
             style="opacity: .8">
-        <span class="brand-text font-weight-light">STREAM</span>
+        <span class="brand-text font-weight-light">MAA Admin</span>
     </a>
 
     <!-- Sidebar -->
@@ -78,9 +78,19 @@
                         </p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.profile.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Profil Team
+                        </p>
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a href="{{ route('admin.landing.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-pager"></i>
                         <p>
                             Landing Page
                         </p>
