@@ -46,7 +46,7 @@
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <img src="{{ asset('storage/profile/'.$profile->image)}}" alt="" width="100px">
+                                        <img src="{{ asset('storage/teamProfil/'.$profile->image)}}" alt="" width="100px">
                                     </td>
                                     <td class="text-center">
                                         <a href="{{ route('admin.profile.edit', $profile->id) }}"
@@ -76,7 +76,7 @@
                                                         <div class="modal-body">
                                                             Are you sure you want to delete <strong><span
                                                                     class="text-teal text-uppercase">{{
-                                                                    $profile->title }}</span></strong>
+                                                                    $profile->name }}</span></strong>
                                                             profile?
                                                         </div>
                                                         <div class="modal-footer">
