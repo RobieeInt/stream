@@ -25,7 +25,7 @@
             <h3 class="post-title">{{ $blog->title }}</h3>
             {{-- limit 50 character --}}
             <p class="post-excerpt">{!! Str::limit($blog->content, 150) !!}</p>
-            <a href="{{ route('landing.blogDetails', $blog->slug) }}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            <a href="{{ route('landing.blogDetails', $blog->slug) }}" class="readmore stretched-link"><span>Selengkapnya ..</span><i class="bi bi-arrow-right"></i></a>
             </div>
         </div>
         @endforeach

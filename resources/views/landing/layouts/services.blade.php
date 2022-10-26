@@ -12,8 +12,13 @@
         <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
           <div class="icon flex-shrink-0"><i class="bi bi-star-fill" style="color: #f57813;"></i></div>
           <div>
-            <h4 class="title"><a href="#" class="stretched-link">{{ $review->name }}</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+            <h4 class="title"><a href="#" class="stretched-link"><strong>{{ $review->name }}</strong></a></h4>
+            <h5 class="description"><strong>{{ $review->job }}</strong></h5>
+            <p class="description">
+                {{-- limit 50 character --}}
+                {!! Str::limit($review->review, 150) !!}
+            </p>
+            <a href="{{ route('landing.index', $review->slug) }}" class="readmore stretched-link"><span>Selengkapnya ..</span><i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
         @endforeach
