@@ -6,13 +6,15 @@ use App\Models\ProfileCorp;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Tags;
 
 class ProfileCorpController extends Controller
 {
     public function index()
     {
+        $tags = Tags::all();
         $landings = ProfileCorp::all();
-        return view('admin.landing.landings', ['landings' => $landings]);
+        return view('admin.landing.landings', compact('landings', 'tags'));
     }
 
     public function create()

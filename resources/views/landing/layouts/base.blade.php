@@ -8,8 +8,8 @@
   <title>
     {{ env('APP_NAME') }}
   </title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta content="Tempat Konsultasi Masalah Hukum, Pidana, Perdata , Likuidator. melayani permasalahan hukum perusahaan maupun perorangan" name="description">
+  <meta content="Pengacara Hukum, Konsultasi Hukum, Konsultasi Hukum Gratis, Konsultasi Pidana, Konsultasi Penangkapan, Masalah Hukum Indonesia" name="keywords">
 
   <!-- Favicons -->
   <link href="{{ asset('maa/assets/img/favicon.png') }}" rel="icon">
@@ -82,6 +82,9 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('maa/assets/js/main.js') }}"></script>
+
+   <!--Script WA-->
+   <script defer data-key="0db77df7-6ad2-4ad9-a72e-94732241f6ee" src="https://widget.tochat.be/bundle.js"></script>
 
 </body>
 

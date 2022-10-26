@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\ProfileCorpController;
 use App\Http\Controllers\Admin\LandingController;
 use App\Http\Controllers\Admin\ProfilTeamController;
+use App\Http\Controllers\Admin\ReviewClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,9 @@ use App\Http\Controllers\Admin\ProfilTeamController;
 // Route::view('/', 'landing.index')->name('landing.index');
 // route index landing
 Route::get('/', [LandingController::class, 'index'])->name('landing.index');
+
+//route review loadmore
+Route::get('/loadmore', [LandingController::class, 'loadMoreReview'])->name('landing.loadMoreReview');
 
 //route to blog details route slug
 Route::get('/blog/{slug}', [LandingController::class, 'blogDetails'])->name('landing.blogDetails');
@@ -102,6 +106,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth'],'namespace' =>
         Route::get('/edit/{id}', [ProfilTeamController::class, 'edit'])->name('admin.profile.edit');
         Route::put('/update/{id}', [ProfilTeamController::class, 'update'])->name('admin.profile.update');
         Route::delete('/destroy/{id}', [ProfilTeamController::class, 'destroy'])->name('admin.profile.destroy');
+    });
+
+    //route review
+    Route::group(['prefix' => 'review'], function () {
+        Route::get('/', [ReviewClientController::class, 'index'])->name('admin.review.index');
+        Route::get('/create', [ReviewClientController::class, 'create'])->name('admin.review.create');
+        Route::post('/store', [ReviewClientController::class, 'store'])->name('admin.review.store');
+        Route::get('/edit/{id}', [ReviewClientController::class, 'edit'])->name('admin.review.edit');
+        Route::put('/update/{id}', [ReviewClientController::class, 'update'])->name('admin.review.update');
+        Route::delete('/destroy/{id}', [ReviewClientController::class, 'destroy'])->name('admin.review.destroy');
     });
 
 });

@@ -86,7 +86,7 @@
 
                     <div class="form-group">
                         <label>Status Team</label>
-                        <select class="custom-select" name="status" value="{{old('status')}}">
+                        <select class="custom-select" name="status" value="{{$profile->is_active}}">
                             <option value="0" {{$profile->is_active == 0 ? "selected" : "" }}>Tidak Aktif</option>
                             <option value="1" {{ $profile->is_active == 1 ? "selected" : "" }}>Aktif</option>
                         </select>

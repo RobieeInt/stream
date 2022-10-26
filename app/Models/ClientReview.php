@@ -2,26 +2,21 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class TeamProfil extends Model
+class ClientReview extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'profil_team';
-
     protected $fillable = [
         'name',
-        'slug_name',
         'job',
+        'email',
+        'phone',
+        'review',
         'image',
-        'description',
-        'facebook',
-        'twitter',
-        'instagram',
-        'linkedin',
         'is_active',
     ];
 }

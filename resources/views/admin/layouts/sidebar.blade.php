@@ -47,7 +47,7 @@
                     <a href="{{ route('admin.movie.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-video"></i>
                         <p>
-                            Movies
+                            Video
                         </p>
                     </a>
                 </li>
@@ -84,6 +84,15 @@
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             Profil Team
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.review.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Review Client
                         </p>
                     </a>
                 </li>

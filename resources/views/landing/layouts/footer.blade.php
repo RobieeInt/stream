@@ -8,7 +8,7 @@
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-info">
             <a href="index.html" class="logo d-flex align-items-center">
-              <span>{{ env('APP_NAME') }}</span>
+              <span>Mohammad Anwar</span>
             </a>
             {!! $landing->footer_description !!}
             <div class="social-links d-flex  mt-3">
@@ -33,11 +33,9 @@
           <div class="col-lg-2 col-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bi bi-dash"></i> <a href="#">Web Design</a></li>
-              <li><i class="bi bi-dash"></i> <a href="#">Web Development</a></li>
-              <li><i class="bi bi-dash"></i> <a href="#">Product Management</a></li>
-              <li><i class="bi bi-dash"></i> <a href="#">Marketing</a></li>
-              <li><i class="bi bi-dash"></i> <a href="#">Graphic Design</a></li>
+                @foreach ($tags as $tag )
+                <li><i class="bi bi-dash"></i> <a href="#">{{ $tag->name }}</a></li>
+                @endforeach
             </ul>
           </div>
 
