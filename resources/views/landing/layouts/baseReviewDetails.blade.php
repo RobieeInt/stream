@@ -43,10 +43,10 @@
     <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/maa/assets/img/yoi.jpeg');">
       <div class="container position-relative d-flex flex-column align-items-center">
 
-        <h2>Review Details</h2>
+        <h2>Review Client</h2>
         <ol>
           <li><a href="{{ route('landing.index') }}">Home</a></li>
-          <li>Review Details</li>
+          <li>Review Client</li>
         </ol>
 
       </div>
