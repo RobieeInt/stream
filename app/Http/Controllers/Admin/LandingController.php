@@ -41,6 +41,14 @@ class LandingController extends Controller
         return view('landing.blogDetails', compact('blog', 'recentBlogs', 'landings', 'randomBlogs', 'tags'));
     }
 
+    public function reviewDetails($slug)
+    {
+        $landings = ProfileCorp::all();
+        $tags = Tags::all();
+        $review = ClientReview::where('slug', $slug)->first();
+        return view('landing.reviewDetails', compact('review', 'landings', 'tags'));
+    }
+
     public function loadMoreReview(Request $request)
     {
         $offset = $request->offset;

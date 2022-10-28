@@ -8,8 +8,8 @@
   <title>
     {{ env('APP_NAME') }}
   </title>
-  <meta content="Tempat Konsultasi Masalah Hukum, Pidana, Perdata , Likuidator. melayani permasalahan hukum perusahaan maupun perorangan" name="description">
-  <meta content="Pengacara Hukum, Konsultasi Hukum, Konsultasi Hukum Gratis, Konsultasi Pidana, Konsultasi Penangkapan, Masalah Hukum Indonesia" name="keywords">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
   <!-- Favicons -->
   <link href="{{ asset('maa/assets/img/favicon.png') }}" rel="icon">
@@ -37,19 +37,33 @@
   <!-- ======= Header ======= -->
   @include('landing.layouts.navbar')
   <!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  @include('landing.layouts.hero')
-  <!-- End Hero Section -->
-
   <main id="main">
 
+  <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/maa/assets/img/yoi.jpeg');">
+      <div class="container position-relative d-flex flex-column align-items-center">
+
+        <h2>Services</h2>
+        <ol>
+          <li><a href="{{ route('landing.index') }}">Home</a></li>
+          <li>Services</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Details Section ======= -->
+    @include('landing.layouts._services')
+    <!-- End Blog Details Section -->
+
+
+
     <!-- ======= Why Choose Us Section ======= -->
-    @include('landing.layouts.whychoose')
+    {{-- @include('landing.layouts.whychoose') --}}
     <!-- End Why Choose Us Section -->
 
     <!-- ======= Our Services Section ======= -->
-    @include('landing.layouts.reviews')
+    {{-- @include('landing.layouts.services') --}}
     <!-- End Our Services Section -->
 
     <!-- ======= Call To Action Section ======= -->
@@ -59,7 +73,6 @@
     <!-- End Features Section -->
 
     <!-- ======= Recent Blog Posts Section ======= -->
-    @include('landing.layouts.recentblogs')
     <!-- End Recent Blog Posts Section -->
 
   </main><!-- End #main -->
@@ -82,9 +95,6 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('maa/assets/js/main.js') }}"></script>
-
-   <!--Script WA-->
-   <script defer data-key="0db77df7-6ad2-4ad9-a72e-94732241f6ee" src="https://widget.tochat.be/bundle.js"></script>
 
 </body>
 

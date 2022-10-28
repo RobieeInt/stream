@@ -13,6 +13,7 @@ class ClientReview extends Model
     protected $fillable = [
         'name',
         'job',
+        'slug',
         'email',
         'phone',
         'review',

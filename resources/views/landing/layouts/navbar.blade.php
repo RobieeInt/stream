@@ -15,7 +15,7 @@
         <ul>
           <li><a href="{{ route('landing.index') }}" class="active">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="{{ route('landing.service') }}">Services</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="team.html">Team</a></li>
           <li><a href="blog.html">Blog</a></li>

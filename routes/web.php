@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ProfileCorpController;
 use App\Http\Controllers\Admin\LandingController;
 use App\Http\Controllers\Admin\ProfilTeamController;
 use App\Http\Controllers\Admin\ReviewClientController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,10 +34,14 @@ Route::get('/', [LandingController::class, 'index'])->name('landing.index');
 
 //route review loadmore
 Route::get('/loadmore', [LandingController::class, 'loadMoreReview'])->name('landing.loadMoreReview');
+Route::get('/review/{slug}', [LandingController::class, 'reviewDetails'])->name('landing.reviewDetails');
 
 //route to blog details route slug
 Route::get('/blog/{slug}', [LandingController::class, 'blogDetails'])->name('landing.blogDetails');
 // Route::get('/blog/{id}', [LandingController::class, 'blogDetails'])->name('landing.blogDetails');
+
+//route to service
+Route::get('/service', [ServiceController::class, 'index'])->name('landing.service');
 
 Route::get('admin/login', [LoginController::class, 'index'])->name('admin.login');
 Route::post('admin/login', [LoginController::class, 'authenticate'])->name('admin.login.auth');

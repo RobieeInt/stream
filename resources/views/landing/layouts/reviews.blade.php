@@ -18,7 +18,7 @@
                 {{-- limit 50 character --}}
                 {!! Str::limit($review->review, 150) !!}
             </p>
-            <a href="{{ route('landing.index', $review->slug) }}" class="readmore stretched-link"><span>Selengkapnya ..</span><i class="bi bi-arrow-right"></i></a>
+            <a href="{{ route('landing.reviewDetails', $review->slug) }}" class="readmore stretched-link"><span>Selengkapnya ..</span><i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
         @endforeach
