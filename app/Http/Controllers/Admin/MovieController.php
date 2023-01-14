@@ -43,6 +43,11 @@ class MovieController extends Controller
 
         ]);
 
+        //create folder if not exist
+        if (!file_exists(public_path('storage/thumbnail'))) {
+            mkdir(public_path('storage/thumbnail'), 0777, true);
+        }
+
         $small_thumbnail = $request->file('small_thumbnail');
         $large_thumbnail = $request->file('large_thumbnail');
 

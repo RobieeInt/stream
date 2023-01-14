@@ -17,7 +17,7 @@
           <li><a href="about.html">About</a></li>
           <li><a href="{{ route('landing.service') }}">Services</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="team.html">Team</a></li>
+          <li><a href="{{ route('landing.team') }}">Team</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>

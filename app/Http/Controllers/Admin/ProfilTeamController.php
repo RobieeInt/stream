@@ -43,7 +43,7 @@ class ProfilTeamController extends Controller
         //resize image composer require intervention/image
         $image_resize = Image::make($image->getRealPath());
         //resize dimension 1024x768
-        $image_resize->resize(1024, 768);
+        $image_resize->resize(661, 1024);
 
         //create folder if not exist
         if (!file_exists(public_path('storage/teamProfil'))) {
@@ -94,10 +94,11 @@ class ProfilTeamController extends Controller
             //resize image composer require intervention/image
             $image_resize = Image::make($image->getRealPath());
             //resize dimension 1024x768
-            $image_resize->resize(1024, 768);
+            $image_resize->resize(661, 1024);
+            //remove background
             $image_resize->save(public_path('storage/teamProfil/' . $image_name));
             $data['image'] = $image_name;
-
+            //delete old image
             Storage::delete('public/teamProfil/' . $profile->image);
         } else {
             $data['image'] = $profile->image;

@@ -38,7 +38,7 @@ class ReviewClientController extends Controller
         //resize image composer require intervention/image
         $image_resize = Image::make($image->getRealPath());
         //resize dimension 1024x768
-        $image_resize->resize(1024, 768);
+        $image_resize->resize(661, 860);
 
         //create folder if not exist
         if (!file_exists(public_path('storage/reviewClient'))) {
@@ -86,7 +86,7 @@ class ReviewClientController extends Controller
             //resize image composer require intervention/image
             $image_resize = Image::make($image->getRealPath());
             //resize dimension 1024x768
-            $image_resize->resize(1024, 768);
+            $image_resize->resize(661, 860);
             //save image
             $image_resize->save(public_path('storage/reviewClient/' . $image_name));
 

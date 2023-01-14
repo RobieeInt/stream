@@ -11,7 +11,8 @@ use App\Http\Controllers\Admin\ProfileCorpController;
 use App\Http\Controllers\Admin\LandingController;
 use App\Http\Controllers\Admin\ProfilTeamController;
 use App\Http\Controllers\Admin\ReviewClientController;
-use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\Admin\TagsController;
+use App\Http\Controllers\LandingPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,8 +41,10 @@ Route::get('/review/{slug}', [LandingController::class, 'reviewDetails'])->name(
 Route::get('/blog/{slug}', [LandingController::class, 'blogDetails'])->name('landing.blogDetails');
 // Route::get('/blog/{id}', [LandingController::class, 'blogDetails'])->name('landing.blogDetails');
 
-//route to service
-Route::get('/service', [ServiceController::class, 'index'])->name('landing.service');
+//route landing
+Route::get('/service', [LandingPageController::class, 'service'])->name('landing.service');
+Route::get('/team', [LandingPageController::class, 'team'])->name('landing.team');
+
 
 Route::get('admin/login', [LoginController::class, 'index'])->name('admin.login');
 Route::post('admin/login', [LoginController::class, 'authenticate'])->name('admin.login.auth');
@@ -121,6 +124,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth'],'namespace' =>
         Route::get('/edit/{id}', [ReviewClientController::class, 'edit'])->name('admin.review.edit');
         Route::put('/update/{id}', [ReviewClientController::class, 'update'])->name('admin.review.update');
         Route::delete('/destroy/{id}', [ReviewClientController::class, 'destroy'])->name('admin.review.destroy');
+    });
+
+    //route tags
+    Route::group(['prefix' => 'tags'], function () {
+        Route::get('/', [TagsController::class, 'index'])->name('admin.tags.index');
+        Route::get('/create', [TagsController::class, 'create'])->name('admin.tags.create');
+        Route::post('/store', [TagsController::class, 'store'])->name('admin.tags.store');
+        Route::get('/edit/{id}', [TagsController::class, 'edit'])->name('admin.tags.edit');
+        Route::put('/update/{id}', [TagsController::class, 'update'])->name('admin.tags.update');
+        Route::delete('/destroy/{id}', [TagsController::class, 'destroy'])->name('admin.tags.destroy');
     });
 
 });

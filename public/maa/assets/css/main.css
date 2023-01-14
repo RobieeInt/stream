@@ -1062,9 +1062,10 @@ section {
 }
 
 .services-cards .card-item .card-bg {
-  min-height: 300px;
+  min-height: 360px;
   background-size: cover;
   background-repeat: no-repeat;
+    background-position: center;
 }
 
 .services-cards .card-item .card-body {

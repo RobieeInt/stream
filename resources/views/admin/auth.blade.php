@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Stream | Log in</title>
+  <title>MAA | Log in</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -17,7 +17,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="{{ route('admin.login') }}"><b>Stream</b> Admin</a>
+    <a href="{{ route('admin.login') }}"><b>MAA</b> Admin</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
