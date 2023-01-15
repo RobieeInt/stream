@@ -8,7 +8,7 @@
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-info">
             <a href="index.html" class="logo d-flex align-items-center">
-              <span>Mohammad Anwar</span>
+              <span>{{ env('APP_NAME') }}</span>
             </a>
             {!! $landing->footer_description !!}
             <div class="social-links d-flex  mt-3">

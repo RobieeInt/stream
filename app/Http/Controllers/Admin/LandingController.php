@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ClientReview;
 use App\Models\Tags;
+use App\Models\WhyChoose;
 
 class LandingController extends Controller
 {
@@ -19,7 +20,8 @@ class LandingController extends Controller
         $landings = ProfileCorp::all();
         // limit blog to 4 items order by created_at desc
         $blogs = Blog::orderBy('created_at', 'desc')->limit(4)->get();
-        return view('landing.index', compact('landings', 'tags', 'blogs', 'reviews'));
+        $chooses = WhyChoose::all();
+        return view('landing.index', compact('landings', 'tags', 'blogs', 'reviews', 'chooses'));
     }
 
     public function blogDetails( $slug)

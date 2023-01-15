@@ -6,7 +6,7 @@ use App\Models\ClientReview;
 use App\Models\Tags;
 use App\Models\ProfileCorp;
 use App\Models\TeamProfil;
-
+use App\Models\WhyChoose;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -16,7 +16,8 @@ class LandingPageController extends Controller
         $landings = ProfileCorp::all();
         $tags = Tags::all();
         $reviews = ClientReview::all();
-        return view('landing.services', compact('landings', 'tags', 'reviews'));
+        $chooses = WhyChoose::all();
+        return view('landing.services', compact('landings', 'tags', 'reviews', 'chooses'));
     }
 
     public function team()
@@ -25,6 +26,7 @@ class LandingPageController extends Controller
         $tags = Tags::all();
         $reviews = ClientReview::all();
         $teamprofiles = TeamProfil::all();
-        return view('landing.team', compact('landings', 'tags', 'reviews', 'teamprofiles'));
+        $chooses = WhyChoose::all();
+        return view('landing.team', compact('landings', 'tags', 'reviews', 'teamprofiles','chooses'));
     }
 }
