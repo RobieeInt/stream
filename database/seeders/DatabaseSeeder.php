@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             PackageSeeder::class,
             TransactionSeeder::class,
             TagsSeeder::class,
+            WhyChooseSeeder::class,
         ]);
     }
 }

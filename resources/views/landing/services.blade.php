@@ -1,3 +1,3 @@
-@extends('landing.layouts.baseservices')
+@extends('landing.layouts.baseServices')
 
 @section('title', 'Home')

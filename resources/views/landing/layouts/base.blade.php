@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>
-    {{ env('APP_NAME') }}
+    {{ env('APP_NAME') }} |  {{ env('APP_DESC') }}
   </title>
   <meta content="Tempat Konsultasi Masalah Hukum, Pidana, Perdata , Likuidator. melayani permasalahan hukum perusahaan maupun perorangan" name="description">
   <meta content="Pengacara Hukum, Konsultasi Hukum, Konsultasi Hukum Gratis, Konsultasi Pidana, Konsultasi Penangkapan, Masalah Hukum Indonesia" name="keywords">
